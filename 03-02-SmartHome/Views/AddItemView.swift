@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct AddItemView: View {
-    @Binding var text: String
-    @Binding var selection: DeviceType
+    @State private var text = ""
+    @State private var selection: DeviceType = .light
     @Binding var devices: [SmartDevice]
-       
     
     var body: some View {
         VStack {
@@ -30,25 +29,11 @@ struct AddItemView: View {
                 }
             }
             
-            ForEach(devices) { device in
-                HStack {
-                    Text(device.name)
-                    Spacer()
-                    Text(device.type.rawValue)
-                }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.horizontal)
-            }
         }
         .padding(20)
     }
 }
 
 #Preview {
-    AddItemView(text: .constant(""),
-                selection: .constant(.light),
-                devices: .constant([
-                    SmartDevice(name: "Living Room Light", type: .light),
-                    SmartDevice(name: "Bedroom Heater", type: .heating)
-                ]))
+    AddItemView(devices: .constant([SmartDevice(name: "Living room light", type: .light)]))
 }

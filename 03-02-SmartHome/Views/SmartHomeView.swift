@@ -9,9 +9,7 @@ import SwiftUI
 
 struct SmartHomeView: View {
     @State var showRoomView = false
-    @State  var text = ""
-    @State  var selection: DeviceType = .light
-    @State  var devices: [SmartDevice] = [
+    @State private var devices: [SmartDevice] = [
         SmartDevice(name: "Living room light", type: .light),
         SmartDevice(name: "Heater", type: .heating),
         SmartDevice(name: "House door", type: .lock)
@@ -21,8 +19,17 @@ struct SmartHomeView: View {
         ZStack {
             VStack {
                 ScrollView {
-                    AddItemView(text: $text, selection: $selection, devices: $devices)
+                    AddItemView(devices: $devices)
                     
+                    ForEach(devices) { device in
+                        HStack {
+                            Text(device.name)
+                            Spacer()
+                            Text(device.type.rawValue)
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal)
+                    }
                 }
                 Toggle("Room View", isOn: $showRoomView)
                     .padding()
