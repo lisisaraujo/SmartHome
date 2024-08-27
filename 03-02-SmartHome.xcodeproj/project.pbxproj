@@ -7,16 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A750CC242C7C831B003A4B0C /* SmartHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A750CC232C7C831B003A4B0C /* SmartHomeView.swift */; };
+		A750CC262C7C85C8003A4B0C /* AddItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A750CC252C7C85C8003A4B0C /* AddItem.swift */; };
+		A750CC282C7C8AF8003A4B0C /* RoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A750CC272C7C8AF8003A4B0C /* RoomView.swift */; };
+		A750CC2A2C7CAA45003A4B0C /* DropdownMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A750CC292C7CAA45003A4B0C /* DropdownMenuView.swift */; };
+		A750CC2C2C7CC0DD003A4B0C /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A750CC2B2C7CC0DD003A4B0C /* ButtonView.swift */; };
+		A750CC322C7DCE5F003A4B0C /* DeviceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A750CC312C7DCE5F003A4B0C /* DeviceType.swift */; };
+		A750CC342C7DCEF1003A4B0C /* SmartDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A750CC332C7DCEF1003A4B0C /* SmartDevice.swift */; };
 		DB36005B2C78DAE9001888EF /* _3_02_SmartHomeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB36005A2C78DAE9001888EF /* _3_02_SmartHomeApp.swift */; };
-		DB36005D2C78DAE9001888EF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB36005C2C78DAE9001888EF /* ContentView.swift */; };
 		DB36005F2C78DAEA001888EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB36005E2C78DAEA001888EF /* Assets.xcassets */; };
 		DB3600622C78DAEA001888EF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB3600612C78DAEA001888EF /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A750CC232C7C831B003A4B0C /* SmartHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartHomeView.swift; sourceTree = "<group>"; };
+		A750CC252C7C85C8003A4B0C /* AddItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItem.swift; sourceTree = "<group>"; };
+		A750CC272C7C8AF8003A4B0C /* RoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomView.swift; sourceTree = "<group>"; };
+		A750CC292C7CAA45003A4B0C /* DropdownMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownMenuView.swift; sourceTree = "<group>"; };
+		A750CC2B2C7CC0DD003A4B0C /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		A750CC312C7DCE5F003A4B0C /* DeviceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceType.swift; sourceTree = "<group>"; };
+		A750CC332C7DCEF1003A4B0C /* SmartDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartDevice.swift; sourceTree = "<group>"; };
 		DB3600572C78DAE9001888EF /* 03-02-SmartHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "03-02-SmartHome.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB36005A2C78DAE9001888EF /* _3_02_SmartHomeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _3_02_SmartHomeApp.swift; sourceTree = "<group>"; };
-		DB36005C2C78DAE9001888EF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DB36005E2C78DAEA001888EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB3600612C78DAEA001888EF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -32,6 +44,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A750CC212C7C82C0003A4B0C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A750CC312C7DCE5F003A4B0C /* DeviceType.swift */,
+				A750CC332C7DCEF1003A4B0C /* SmartDevice.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A750CC222C7C82C6003A4B0C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A750CC232C7C831B003A4B0C /* SmartHomeView.swift */,
+				A750CC252C7C85C8003A4B0C /* AddItem.swift */,
+				A750CC272C7C8AF8003A4B0C /* RoomView.swift */,
+				A750CC292C7CAA45003A4B0C /* DropdownMenuView.swift */,
+				A750CC2B2C7CC0DD003A4B0C /* ButtonView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		DB36004E2C78DAE9001888EF = {
 			isa = PBXGroup;
 			children = (
@@ -51,8 +84,9 @@
 		DB3600592C78DAE9001888EF /* 03-02-SmartHome */ = {
 			isa = PBXGroup;
 			children = (
+				A750CC222C7C82C6003A4B0C /* Views */,
+				A750CC212C7C82C0003A4B0C /* Models */,
 				DB36005A2C78DAE9001888EF /* _3_02_SmartHomeApp.swift */,
-				DB36005C2C78DAE9001888EF /* ContentView.swift */,
 				DB36005E2C78DAEA001888EF /* Assets.xcassets */,
 				DB3600602C78DAEA001888EF /* Preview Content */,
 			);
@@ -137,8 +171,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB36005D2C78DAE9001888EF /* ContentView.swift in Sources */,
+				A750CC2A2C7CAA45003A4B0C /* DropdownMenuView.swift in Sources */,
 				DB36005B2C78DAE9001888EF /* _3_02_SmartHomeApp.swift in Sources */,
+				A750CC322C7DCE5F003A4B0C /* DeviceType.swift in Sources */,
+				A750CC342C7DCEF1003A4B0C /* SmartDevice.swift in Sources */,
+				A750CC2C2C7CC0DD003A4B0C /* ButtonView.swift in Sources */,
+				A750CC282C7C8AF8003A4B0C /* RoomView.swift in Sources */,
+				A750CC242C7C831B003A4B0C /* SmartHomeView.swift in Sources */,
+				A750CC262C7C85C8003A4B0C /* AddItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +319,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,6 +348,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
