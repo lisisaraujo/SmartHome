@@ -9,16 +9,20 @@ import SwiftUI
 
 struct SmartHomeView: View {
     @State var showRoomView = false
-    @State private var text = ""
-    @State private var items: [String] = []
+    @State  var text = ""
+    @State  var selection: DeviceType = .light
+    @State  var devices: [SmartDevice] = [
+        SmartDevice(name: "Living room light", type: .light),
+        SmartDevice(name: "Heater", type: .heating),
+        SmartDevice(name: "House door", type: .lock)
+    ]
     
     var body: some View {
         ZStack {
             VStack {
                 ScrollView {
-                    AddItem()
+                    AddItemView(text: $text, selection: $selection, devices: $devices)
                     
-               
                 }
                 Toggle("Room View", isOn: $showRoomView)
                     .padding()

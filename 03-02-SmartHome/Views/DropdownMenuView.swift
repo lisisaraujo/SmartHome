@@ -8,19 +8,19 @@
 import SwiftUI
 
 struct DropdownMenuView: View {
-    @State private var selection = "Light"
-    let listItems = ["💡Light", "♨Heatig", "🔐Door", "🥱Curtains"]
+    @Binding var selection: DeviceType
+    let listItems: [DeviceType] = [.light, .heating, .lock, .curtains]
 
     var body: some View {
-            Picker("Select a paint color", selection: $selection) {
-                ForEach(listItems, id: \.self) {
-                    Text($0)
-                }
+        Picker("Select", selection: $selection) {
+            ForEach(listItems, id: \.self) { item in
+                Text(item.rawValue).tag(item)
             }
-            .pickerStyle(.menu)
+        }
+        .pickerStyle(.menu)
     }
 }
 
 #Preview {
-    DropdownMenuView()
+    DropdownMenuView(selection: .constant(.light))
 }

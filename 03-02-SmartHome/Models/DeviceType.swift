@@ -7,8 +7,11 @@
 
 import Foundation
 
-enum DeviceType {
-    case light
-    case thermostat
-    case lock
+enum DeviceType: String, Identifiable {
+    case light = "Light"
+    case heating = "Heating"
+    case lock = "Lock"
+    case curtains = "Curtains"
+    
+    var id: String { self.rawValue }
 }

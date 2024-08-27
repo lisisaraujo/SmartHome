@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A750CC242C7C831B003A4B0C /* SmartHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A750CC232C7C831B003A4B0C /* SmartHomeView.swift */; };
-		A750CC262C7C85C8003A4B0C /* AddItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A750CC252C7C85C8003A4B0C /* AddItem.swift */; };
+		A750CC262C7C85C8003A4B0C /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A750CC252C7C85C8003A4B0C /* AddItemView.swift */; };
 		A750CC282C7C8AF8003A4B0C /* RoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A750CC272C7C8AF8003A4B0C /* RoomView.swift */; };
 		A750CC2A2C7CAA45003A4B0C /* DropdownMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A750CC292C7CAA45003A4B0C /* DropdownMenuView.swift */; };
 		A750CC2C2C7CC0DD003A4B0C /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A750CC2B2C7CC0DD003A4B0C /* ButtonView.swift */; };
@@ -21,7 +21,7 @@
 
 /* Begin PBXFileReference section */
 		A750CC232C7C831B003A4B0C /* SmartHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartHomeView.swift; sourceTree = "<group>"; };
-		A750CC252C7C85C8003A4B0C /* AddItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItem.swift; sourceTree = "<group>"; };
+		A750CC252C7C85C8003A4B0C /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
 		A750CC272C7C8AF8003A4B0C /* RoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomView.swift; sourceTree = "<group>"; };
 		A750CC292C7CAA45003A4B0C /* DropdownMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownMenuView.swift; sourceTree = "<group>"; };
 		A750CC2B2C7CC0DD003A4B0C /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
@@ -57,7 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				A750CC232C7C831B003A4B0C /* SmartHomeView.swift */,
-				A750CC252C7C85C8003A4B0C /* AddItem.swift */,
+				A750CC252C7C85C8003A4B0C /* AddItemView.swift */,
 				A750CC272C7C8AF8003A4B0C /* RoomView.swift */,
 				A750CC292C7CAA45003A4B0C /* DropdownMenuView.swift */,
 				A750CC2B2C7CC0DD003A4B0C /* ButtonView.swift */,
@@ -178,7 +178,7 @@
 				A750CC2C2C7CC0DD003A4B0C /* ButtonView.swift in Sources */,
 				A750CC282C7C8AF8003A4B0C /* RoomView.swift in Sources */,
 				A750CC242C7C831B003A4B0C /* SmartHomeView.swift in Sources */,
-				A750CC262C7C85C8003A4B0C /* AddItem.swift in Sources */,
+				A750CC262C7C85C8003A4B0C /* AddItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
