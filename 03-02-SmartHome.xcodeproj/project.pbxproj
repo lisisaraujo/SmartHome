@@ -14,6 +14,8 @@
 		A750CC2C2C7CC0DD003A4B0C /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A750CC2B2C7CC0DD003A4B0C /* ButtonView.swift */; };
 		A750CC322C7DCE5F003A4B0C /* DeviceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A750CC312C7DCE5F003A4B0C /* DeviceType.swift */; };
 		A750CC342C7DCEF1003A4B0C /* SmartDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A750CC332C7DCEF1003A4B0C /* SmartDevice.swift */; };
+		A750CC362C7E0AE6003A4B0C /* GridItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A750CC352C7E0AE6003A4B0C /* GridItemView.swift */; };
+		A750CC382C7E0AF8003A4B0C /* ListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A750CC372C7E0AF8003A4B0C /* ListItemView.swift */; };
 		DB36005B2C78DAE9001888EF /* _3_02_SmartHomeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB36005A2C78DAE9001888EF /* _3_02_SmartHomeApp.swift */; };
 		DB36005F2C78DAEA001888EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB36005E2C78DAEA001888EF /* Assets.xcassets */; };
 		DB3600622C78DAEA001888EF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB3600612C78DAEA001888EF /* Preview Assets.xcassets */; };
@@ -27,6 +29,8 @@
 		A750CC2B2C7CC0DD003A4B0C /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		A750CC312C7DCE5F003A4B0C /* DeviceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceType.swift; sourceTree = "<group>"; };
 		A750CC332C7DCEF1003A4B0C /* SmartDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartDevice.swift; sourceTree = "<group>"; };
+		A750CC352C7E0AE6003A4B0C /* GridItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridItemView.swift; sourceTree = "<group>"; };
+		A750CC372C7E0AF8003A4B0C /* ListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemView.swift; sourceTree = "<group>"; };
 		DB3600572C78DAE9001888EF /* 03-02-SmartHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "03-02-SmartHome.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB36005A2C78DAE9001888EF /* _3_02_SmartHomeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _3_02_SmartHomeApp.swift; sourceTree = "<group>"; };
 		DB36005E2C78DAEA001888EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -61,6 +65,8 @@
 				A750CC272C7C8AF8003A4B0C /* RoomView.swift */,
 				A750CC292C7CAA45003A4B0C /* DropdownMenuView.swift */,
 				A750CC2B2C7CC0DD003A4B0C /* ButtonView.swift */,
+				A750CC352C7E0AE6003A4B0C /* GridItemView.swift */,
+				A750CC372C7E0AF8003A4B0C /* ListItemView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -172,9 +178,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A750CC2A2C7CAA45003A4B0C /* DropdownMenuView.swift in Sources */,
+				A750CC362C7E0AE6003A4B0C /* GridItemView.swift in Sources */,
 				DB36005B2C78DAE9001888EF /* _3_02_SmartHomeApp.swift in Sources */,
 				A750CC322C7DCE5F003A4B0C /* DeviceType.swift in Sources */,
 				A750CC342C7DCEF1003A4B0C /* SmartDevice.swift in Sources */,
+				A750CC382C7E0AF8003A4B0C /* ListItemView.swift in Sources */,
 				A750CC2C2C7CC0DD003A4B0C /* ButtonView.swift in Sources */,
 				A750CC282C7C8AF8003A4B0C /* RoomView.swift in Sources */,
 				A750CC242C7C831B003A4B0C /* SmartHomeView.swift in Sources */,

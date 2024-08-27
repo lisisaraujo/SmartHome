@@ -1,10 +1,3 @@
-//
-//  SmartHomeView.swift
-//  03-02-SmartHome
-//
-//  Created by Lisis Ruschel on 26.08.24.
-//
-
 import SwiftUI
 
 struct SmartHomeView: View {
@@ -15,22 +8,40 @@ struct SmartHomeView: View {
         SmartDevice(name: "House door", type: .lock)
     ]
     
+    @State private var isGrid: Bool = false
+    
+    private let columns = [GridItem(.flexible()), GridItem(.flexible())]
+    
     var body: some View {
         ZStack {
             VStack {
                 ScrollView {
                     AddItemView(devices: $devices)
                     
-                    ForEach(devices) { device in
-                        HStack {
-                            Text(device.name)
-                            Spacer()
-                            Text(device.type.rawValue)
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            isGrid.toggle()
+                        }) {
+                            Image(systemName: isGrid ? "list.bullet" : "square.grid.2x2")
+                                .foregroundColor(.blue)
                         }
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.horizontal)
+                        .padding()
                     }
-                }
+                    
+                    if isGrid {
+                        LazyVGrid(columns: columns, spacing: 20) {
+                            ForEach(devices) { device in
+                                GridItemView(device: device)
+                            }
+                        }
+                    } else {
+                        ForEach(devices) { device in
+                            ListItemView(device: device)
+                        }
+                    }
+                }.padding()
+                
                 Toggle("Room View", isOn: $showRoomView)
                     .padding()
                     .background(Color.gray.opacity(0.1))
@@ -46,6 +57,16 @@ struct SmartHomeView: View {
     }
 }
 
+extension DeviceType {
+    var iconName: String {
+        switch self {
+        case .light: return "lightbulb"
+        case .heating: return "thermometer"
+        case .lock: return "lock"
+        case .curtains: return "curtains.closed"
+        }
+    }
+}
 
 #Preview {
     SmartHomeView()
