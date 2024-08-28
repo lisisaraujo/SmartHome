@@ -13,5 +13,5 @@ struct SmartDevice: Identifiable{
     var type: DeviceType
     var isOn: Bool =  false
     var temperature: Double = 20.0
-    var isLocked: Bool =  true
+    var isLocked: Bool =  false
 }

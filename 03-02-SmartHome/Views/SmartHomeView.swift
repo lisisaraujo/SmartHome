@@ -1,11 +1,16 @@
 import SwiftUI
 
+
 struct SmartHomeView: View {
     @State var showRoomView = false
+    @State var isEditing = false
     @State private var devices: [SmartDevice] = [
-        SmartDevice(name: "Living room light", type: .light),
+        SmartDevice(name: "Living Room", type: .light, isOn: true),
         SmartDevice(name: "Heater", type: .heating),
-        SmartDevice(name: "House door", type: .lock)
+        SmartDevice(name: "House", type: .lock, isLocked: true),
+        SmartDevice(name: "Kitchen", type: .light),
+        SmartDevice(name: "Garden", type: .lock),
+        SmartDevice(name: "Bathroom", type: .lock)
     ]
     
     @State private var isGrid: Bool = false
@@ -13,45 +18,69 @@ struct SmartHomeView: View {
     private let columns = [GridItem(.flexible()), GridItem(.flexible())]
     
     var body: some View {
-        ZStack {
-            VStack {
-                ScrollView {
-                    AddItemView(devices: $devices)
+        VStack {
+            ScrollView {
+    
+            
+                AddItemView(devices: $devices)
+                
+                HStack {
                     
-                    HStack {
-                        Spacer()
-                        Button(action: {
-                            isGrid.toggle()
-                        }) {
-                            Image(systemName: isGrid ? "list.bullet" : "square.grid.2x2")
-                                .foregroundColor(.blue)
-                        }
-                        .padding()
+                    Button(action: {
+                        isEditing.toggle()
+                    }) {
+                        Text(isEditing ? "Done" : "Edit")
+                            .foregroundColor(.blue)
                     }
+                    Spacer()
                     
-                    if isGrid {
-                        LazyVGrid(columns: columns, spacing: 20) {
-                            ForEach(devices) { device in
-                                GridItemView(device: device)
+                    Button(action: {
+                        isGrid.toggle()
+                    }) {
+                        Image(systemName: isGrid ? "list.bullet" : "square.grid.2x2")
+                            .foregroundColor(.blue)
+                    }
+                    .padding(.horizontal, 5)
+            
+                }
+                .padding(10)
+                
+                ZStack {
+                    VStack {
+                        if isGrid {
+                            LazyVGrid(columns: columns, spacing: 20) {
+                                ForEach(devices) { device in
+                                    GridItemView(device: device)
+                                }
+                            }
+                        } else {
+                            ForEach(devices.indices, id: \.self) { index in
+                                ListItemView(
+                                    device: devices[index],
+                                    action: {
+                                        print("tapped")
+                                    },
+                                    deleteItem: {
+                                        devices.remove(at: index)
+                                    },
+                                    isEditing: $isEditing
+                                )
                             }
                         }
-                    } else {
-                        ForEach(devices) { device in
-                            ListItemView(device: device)
-                        }
                     }
-                }.padding()
-                
-                Toggle("Room View", isOn: $showRoomView)
-                    .padding()
-                    .background(Color.gray.opacity(0.1))
+                    .opacity(showRoomView ? 0 : 1)
+                    
+                    if showRoomView {
+                        RoomView(showRoomView: $showRoomView, devices: devices)
+                            .transition(.opacity)
+                    }
+                }
             }
+            .padding()
             
-            if showRoomView {
-                RoomView(showRoomView: $showRoomView)
-                    .transition(.move(edge: .bottom))
-                    .zIndex(1)
-            }
+            Toggle("Room View", isOn: $showRoomView)
+                .padding()
+                .background(Color.gray.opacity(0.1))
         }
         .animation(.default, value: showRoomView)
     }

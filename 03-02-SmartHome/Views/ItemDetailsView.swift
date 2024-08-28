@@ -1,22 +1,29 @@
 //
-//  GridItemView.swift
+//  ItemDetailsView.swift
 //  03-02-SmartHome
 //
-//  Created by Lisis Ruschel on 27.08.24.
+//  Created by Lisis Ruschel on 28.08.24.
 //
 
 import SwiftUI
 
-struct GridItemView: View {
-    let device: SmartDevice
+struct ItemDetailsView: View {
+    @Binding var device: SmartDevice
+
     
     var body: some View {
         VStack {
             HStack{
-                Spacer()
+     
                 Text(device.isOn ? "On" : "Off")
                     .padding(.horizontal)
-            }
+                Spacer()
+             
+                
+                Image(systemName: "trash.fill")
+                    .foregroundColor(.red)
+            }.padding(.horizontal)
+            
             Image(systemName: device.type.iconName)
                 .font(.largeTitle)
             Text(device.name)
@@ -30,5 +37,5 @@ struct GridItemView: View {
 }
 
 #Preview {
-    GridItemView(device: SmartDevice(name: "Living room light", type: .light))
+    ItemDetailsView(device: .constant(SmartDevice(name: "Living room light", type: .light)))
 }

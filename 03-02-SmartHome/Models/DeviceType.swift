@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum DeviceType: String, Identifiable {
+enum DeviceType: String, CaseIterable, Identifiable {
     case light = "Light"
     case heating = "Heating"
     case lock = "Lock"
