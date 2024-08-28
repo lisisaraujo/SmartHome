@@ -71,7 +71,7 @@ struct SmartHomeView: View {
                     .opacity(showRoomView ? 0 : 1)
                     
                     if showRoomView {
-                        RoomView(showRoomView: $showRoomView, devices: devices)
+                        ComplexRoomView(showRoomView: $showRoomView, devices: devices)
                             .transition(.opacity)
                     }
                 }
