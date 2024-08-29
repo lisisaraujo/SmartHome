@@ -19,7 +19,7 @@
 		A750CC3A2C7F169A003A4B0C /* TemperatureUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A750CC392C7F169A003A4B0C /* TemperatureUnit.swift */; };
 		A750CC3C2C7F17B8003A4B0C /* WheelPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A750CC3B2C7F17B8003A4B0C /* WheelPickerView.swift */; };
 		A750CC3E2C7F2B41003A4B0C /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A750CC3D2C7F2B41003A4B0C /* DatePickerView.swift */; };
-		A750CC402C7F557B003A4B0C /* ItemDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A750CC3F2C7F557B003A4B0C /* ItemDetailsView.swift */; };
+		A750CC402C7F557B003A4B0C /* SmartDeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A750CC3F2C7F557B003A4B0C /* SmartDeviceView.swift */; };
 		A750CC422C7F637A003A4B0C /* ComplexRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A750CC412C7F637A003A4B0C /* ComplexRoomView.swift */; };
 		DB36005B2C78DAE9001888EF /* _3_02_SmartHomeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB36005A2C78DAE9001888EF /* _3_02_SmartHomeApp.swift */; };
 		DB36005F2C78DAEA001888EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB36005E2C78DAEA001888EF /* Assets.xcassets */; };
@@ -39,7 +39,7 @@
 		A750CC392C7F169A003A4B0C /* TemperatureUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureUnit.swift; sourceTree = "<group>"; };
 		A750CC3B2C7F17B8003A4B0C /* WheelPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelPickerView.swift; sourceTree = "<group>"; };
 		A750CC3D2C7F2B41003A4B0C /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
-		A750CC3F2C7F557B003A4B0C /* ItemDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsView.swift; sourceTree = "<group>"; };
+		A750CC3F2C7F557B003A4B0C /* SmartDeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartDeviceView.swift; sourceTree = "<group>"; };
 		A750CC412C7F637A003A4B0C /* ComplexRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplexRoomView.swift; sourceTree = "<group>"; };
 		DB3600572C78DAE9001888EF /* 03-02-SmartHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "03-02-SmartHome.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB36005A2C78DAE9001888EF /* _3_02_SmartHomeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _3_02_SmartHomeApp.swift; sourceTree = "<group>"; };
@@ -80,7 +80,7 @@
 				A750CC372C7E0AF8003A4B0C /* ListItemView.swift */,
 				A750CC3B2C7F17B8003A4B0C /* WheelPickerView.swift */,
 				A750CC3D2C7F2B41003A4B0C /* DatePickerView.swift */,
-				A750CC3F2C7F557B003A4B0C /* ItemDetailsView.swift */,
+				A750CC3F2C7F557B003A4B0C /* SmartDeviceView.swift */,
 				A750CC412C7F637A003A4B0C /* ComplexRoomView.swift */,
 			);
 			path = Views;
@@ -192,7 +192,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A750CC402C7F557B003A4B0C /* ItemDetailsView.swift in Sources */,
+				A750CC402C7F557B003A4B0C /* SmartDeviceView.swift in Sources */,
 				A750CC2A2C7CAA45003A4B0C /* DropdownMenuView.swift in Sources */,
 				A750CC362C7E0AE6003A4B0C /* GridItemView.swift in Sources */,
 				A750CC3C2C7F17B8003A4B0C /* WheelPickerView.swift in Sources */,

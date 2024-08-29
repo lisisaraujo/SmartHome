@@ -5,76 +5,50 @@ struct RoomView: View {
     var devices: [SmartDevice]
     
     var body: some View {
-        ZStack {
-            Color.white.edgesIgnoringSafeArea(.bottom)
-            VStack {
-                HStack {
-                    Spacer()
-                    Button(action: {
-                        showRoomView = false
-                    }) {
-                        Image(systemName: "xmark")
-                            .font(.body)
-                            .padding(20)
-                            .foregroundColor(.black)
-                
-                    }
+        //lights
+        VStack {
+            HStack {
+                ForEach(devices.filter { $0.type == .light }) { device in
+                    Image(systemName: "lamp.ceiling.fill")
+                        .font(.system(size: 40))
+                        .foregroundStyle(device.isOn ? .yellow : .black)
                 }
-                
-                Spacer()
-                
-                //lights
-                HStack {
-                    ForEach(devices) { device in
-                        if device.type == .light {
-                                Image(systemName: "lamp.ceiling.fill")
-                                    .imageScale(.large)
-                                    .foregroundStyle(device.isOn ? .yellow : .black)
-                        }
-                    }
-                }
-                
-                Spacer()
-                
-                //thermostats
-                HStack {
-                    ForEach(devices) { device in
-                        if device.type == .heating {
-                            HStack{
-                                Image(systemName: "thermometer")
-                                    .imageScale(.large)
-                                    .foregroundStyle(device.isOn ? .red : .blue)
-                                
-                                Text(String(device.temperature)
-                            
-                                )
-                            }
-                            
-                        }
-                    }
-                }
-                
-                Spacer()
-                
-                //locks
-                HStack {
-                    ForEach(devices) { device in
-                        if device.type == .lock {
-                            VStack{
-                                Image(systemName: device.isLocked ? "door.left.hand.closed" : "door.left.hand.open")
-                                    .imageScale(.large)
-                                    .foregroundStyle(device.isLocked ? .green : .red)
-                            }
-                        }
-                    }
-                }
-                
-                Spacer()
             }
-    
-                     .background(Color(.secondarySystemBackground))
-                     .cornerRadius(15)
-                     .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 5)
+            .padding(.top, 20)
+            
+            Spacer()
+            HStack {
+                    ForEach(devices.filter { $0.type == .heating }) { device in
+                        VStack {
+                            Gauge(value: device.temperature, in: 0...30) {
+                                Image(systemName: "thermometer")
+                                    .font(.system(size: 30))
+                            } currentValueLabel: {
+                                Text(String(format: "%.1f°", device.temperature))
+                            } minimumValueLabel: {
+                                Text("0°")
+                            } maximumValueLabel: {
+                                Text("30°")
+                            }
+                            .gaugeStyle(.accessoryCircular)
+                            .tint(Gradient(colors: [.blue, .yellow, .red]))
+                            .scaleEffect(1.5)
+                            .frame(width: 100, height: 100)
+
+                        }
+                    }
+                }
+            Spacer()
+            
+            //locks
+            HStack {
+                ForEach(devices.filter { $0.type == .lock }) { device in
+                    Image(systemName: device.isLocked ? "door.left.hand.closed" : "door.left.hand.open")
+                        .font(.system(size: 40))
+                        .foregroundStyle(device.isLocked ? .green : .black)
+                }
+            }.padding(.bottom, 20)
+            
         }
     }
 

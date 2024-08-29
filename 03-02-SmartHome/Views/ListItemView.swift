@@ -40,7 +40,7 @@ struct ListItemView: View {
             
             }
             .padding()
-            .background(Color.blue.opacity(0.1))
+            .background(device.isOn || device.isLocked ? Color.green.opacity(0.1) : Color.red.opacity(0.1))
             .cornerRadius(20)
             .onTapGesture(perform: action)
             

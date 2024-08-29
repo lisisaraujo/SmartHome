@@ -75,42 +75,8 @@ struct ComplexRoomView: View {
                     }
                     .fill(Color.red)
                     
-                    //lights
-                    VStack {
-                        HStack {
-                            ForEach(devices.filter { $0.type == .light }) { device in
-                                Image(systemName: "lamp.ceiling.fill")
-                                    .font(.system(size: 40))
-                                    .foregroundStyle(device.isOn ? .yellow : .black)
-                            }
-                        }
-                        .padding(.top, 20)
-                        
-                        Spacer()
-                        //thermostats
-                        HStack {
-                            ForEach(devices.filter { $0.type == .heating }) { device in
-                                HStack {
-                                    Image(systemName: "thermometer")
-                                        .font(.system(size: 30))
-                                        .foregroundStyle(device.isOn ? .red : .blue)
-                                    Text(String(format: "%.1f°", device.temperature))
-                                }
-                            }
-                        }
-                        
-                        Spacer()
-                        
-                        //locks
-                        HStack {
-                            ForEach(devices.filter { $0.type == .lock }) { device in
-                                Image(systemName: device.isLocked ? "door.left.hand.closed" : "door.left.hand.open")
-                                    .font(.system(size: 40))
-                                    .foregroundStyle(device.isLocked ? .green : .black)
-                            }
-                        }.padding(.bottom, 20)
-                     
-                    }
+                    RoomView(showRoomView: $showRoomView, devices: devices)
+
                 }
                 .frame(width: 350, height: 220)
                 .background(Color(UIColor.systemGroupedBackground))

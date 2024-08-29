@@ -1,6 +1,5 @@
 import SwiftUI
 
-
 struct SmartHomeView: View {
     @State var showRoomView = false
     @State var isEditing = false
@@ -14,75 +13,101 @@ struct SmartHomeView: View {
     ]
     
     @State private var isGrid: Bool = false
+    @State private var selectedDevice: SmartDevice?
+    @State private var showSmartDevice = false
     
     private let columns = [GridItem(.flexible()), GridItem(.flexible())]
     
     var body: some View {
-        VStack {
-            ScrollView {
-    
-            
-                AddItemView(devices: $devices)
-                
-                HStack {
+        ZStack {
+            VStack {
+                ScrollView {
+                    AddItemView(devices: $devices)
                     
-                    Button(action: {
-                        isEditing.toggle()
-                    }) {
-                        Text(isEditing ? "Done" : "Edit")
-                            .foregroundColor(.blue)
+                    HStack {
+                        Button(action: {
+                            isEditing.toggle()
+                        }) {
+                            Text(isEditing ? "Done" : "Edit")
+                                .foregroundColor(.blue)
+                        }
+                        Spacer()
+                        
+                        Button(action: {
+                            isGrid.toggle()
+                        }) {
+                            Image(systemName: isGrid ? "list.bullet" : "square.grid.2x2")
+                                .foregroundColor(.blue)
+                        }
+                        .padding(.horizontal, 5)
                     }
-                    Spacer()
+                    .padding(10)
                     
-                    Button(action: {
-                        isGrid.toggle()
-                    }) {
-                        Image(systemName: isGrid ? "list.bullet" : "square.grid.2x2")
-                            .foregroundColor(.blue)
-                    }
-                    .padding(.horizontal, 5)
-            
-                }
-                .padding(10)
-                
-                ZStack {
-                    VStack {
-                        if isGrid {
-                            LazyVGrid(columns: columns, spacing: 20) {
-                                ForEach(devices) { device in
-                                    GridItemView(device: device)
+                    ZStack {
+                        VStack {
+                            if isGrid {
+                                LazyVGrid(columns: columns, spacing: 20) {
+                                    ForEach($devices) { $device in
+                                        GridItemView(
+                                            device: device,
+                                            action: {
+                                                selectedDevice = device
+                                                showSmartDevice = true
+                                            },
+                                            deleteItem: {
+                                                devices.removeAll { $0.id == device.id }
+                                            },
+                                            isEditing: $isEditing
+                                        )
+                                    }
+                                }
+                            } else {
+                                ForEach($devices) { $device in
+                                    ListItemView(
+                                        device: device,
+                                        action: {
+                                            selectedDevice = device
+                                            showSmartDevice = true
+                                        },
+                                        deleteItem: {
+                                            devices.removeAll { $0.id == device.id }
+                                        },
+                                        isEditing: $isEditing
+                                    )
                                 }
                             }
-                        } else {
-                            ForEach(devices.indices, id: \.self) { index in
-                                ListItemView(
-                                    device: devices[index],
-                                    action: {
-                                        print("tapped")
-                                    },
-                                    deleteItem: {
-                                        devices.remove(at: index)
-                                    },
-                                    isEditing: $isEditing
-                                )
-                            }
+                        }
+                        .opacity(showRoomView ? 0 : 1)
+                        
+                        if showRoomView {
+                            ComplexRoomView(showRoomView: $showRoomView, devices: devices)
+                                .transition(.opacity)
                         }
                     }
-                    .opacity(showRoomView ? 0 : 1)
-                    
-                    if showRoomView {
-                        ComplexRoomView(showRoomView: $showRoomView, devices: devices)
-                            .transition(.opacity)
-                    }
                 }
-            }
-            .padding()
-            
-            Toggle("Room View", isOn: $showRoomView)
                 .padding()
-                .background(Color.gray.opacity(0.1))
+                
+                Toggle("Room View", isOn: $showRoomView)
+                    .padding()
+                    .background(Color.gray.opacity(0.1))
+            }
+            .animation(.default, value: showRoomView)
+            
+            if showSmartDevice, let deviceIndex = devices.firstIndex(where: { $0.id == selectedDevice?.id }) {
+                Color.black.opacity(0.3)
+                    .edgesIgnoringSafeArea(.all)
+                    .onTapGesture {
+                        showSmartDevice = false
+                    }
+                
+                SmartDeviceView(
+                    selectedDevice: $devices[deviceIndex],
+                    showSmartDevice: $showSmartDevice, heatingValue: devices[deviceIndex].temperature
+                )
+                .animation(.default, value: showSmartDevice)
+            }
         }
-        .animation(.default, value: showRoomView)
+
     }
 }
 

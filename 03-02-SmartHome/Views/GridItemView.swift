@@ -9,13 +9,35 @@ import SwiftUI
 
 struct GridItemView: View {
     let device: SmartDevice
+    let action: () -> Void
+    let deleteItem: () -> Void
+    
+    @Binding var isEditing: Bool
     
     var body: some View {
         VStack {
-            HStack{
+            HStack {
+                if isEditing {
+                    Button(action: deleteItem) {
+                        Image(systemName: "minus.circle.fill")
+                            .foregroundColor(.red)
+                            .imageScale(.large)
+                    }
+                }
+                    
                 Spacer()
-                Text(device.isOn ? "On" : "Off")
-                    .padding(.horizontal)
+                if device.type == .light {
+                    Text(device.isOn ? "On" : "Off")
+                }
+                if device.type == .lock {
+                    Text(device.isLocked ? "Locked" : "Open")
+                        .padding(.horizontal)
+                }
+                
+                if device.type == .heating {
+                    Text("\(String(device.temperature))")
+                        .padding(.horizontal)
+                }
             }
             Image(systemName: device.type.iconName)
                 .font(.largeTitle)
@@ -24,11 +46,21 @@ struct GridItemView: View {
         }
         .frame(height: 100)
         .frame(maxWidth: .infinity)
-        .background(device.isOn ? Color.green.opacity(0.1) : Color.red.opacity(0.1))
+        .background(device.isOn || device.isLocked ? Color.green.opacity(0.1) : Color.red.opacity(0.1))
         .cornerRadius(10)
+        .onTapGesture {
+            if !isEditing {
+                action()
+            }
+        }
     }
 }
 
 #Preview {
-    GridItemView(device: SmartDevice(name: "Living room light", type: .light))
+    GridItemView(
+        device: SmartDevice(name: "Living room light", type: .light),
+        action: { print("Tapped") },
+        deleteItem: { print("Delete tapped") },
+        isEditing: .constant(true)
+    )
 }

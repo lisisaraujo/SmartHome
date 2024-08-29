@@ -12,8 +12,8 @@ struct DropdownMenuView: View {
 
     var body: some View {
         Picker("Select", selection: $selection) {
-            ForEach(DeviceType.allCases) { device in
-                Text(device.rawValue)
+            ForEach(DeviceType.allCases, id: \.self) { device in
+                Text(device.rawValue).tag(device)
             }
         }
         .pickerStyle(.menu)
